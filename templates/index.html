@@ -5,11 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taller 1</title>
+    <style>
+        .center {
+            display: block;
+            margin: auto;
+            width: 80%;
+            max-width: 800px;
+        }
+    </style>
 </head>
 
 <body>
     <div>
-        <img src="imagenes/prueba.jpg" alt="Imagen de prueba" width="200" height="200">
+        <img
+      src="{{url_for('static', filename= 'imagenes/prueba.jpg')}}"
+      class="center"/>
     </div>
 </body>
 
