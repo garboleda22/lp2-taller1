@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -12,18 +12,43 @@
             width: 80%;
             max-width: 800px;
         }
+
+        .btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgba(12, 12, 12, 0.87);
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 
 <body>
     <div>
-        <img
-      src="{{url_for('static', filename= 'imagenes/prueba.jpg')}}"
-      class="center"/>
-      <img
-      src="{{url_for('static', filename= 'imagenes/prueba2.jpg')}}"
-      class="center"/>
+        <img id="imageDisplay" src="{{ url_for('static', filename='imagenes/prueba.jpg') }}" class="center">
+        <button class="btn" onclick="changeImage()">>>>>></button>
     </div>
+
+    <script>
+        let images = [
+            "{{ url_for('static', filename='imagenes/prueba.jpg') }}",
+            "{{ url_for('static', filename='imagenes/prueba2.jpg') }}"
+        ];
+        let index = 0;
+
+        function changeImage() {
+            index = (index + 1) % images.length;
+            document.getElementById("imageDisplay").src = images[index];
+        }
+    </script>
 </body>
 
 </html>
